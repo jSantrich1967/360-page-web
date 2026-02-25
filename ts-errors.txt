@@ -1,0 +1,67 @@
+﻿src/actions/client.actions.ts(43,57): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(values: never, options?: { count?: "exact" | "planned" | "estimated" | undefined; } | undefined): PostgrestFilterBuilder<{ PostgrestVersion: "12"; }, never, never, null, "clients", never, "POST">', gave the following error.
+    Argument of type '{ agency_id: any; first_name: string; last_name: string; email: string | null; phone: string; whatsapp: string | null; notes: string | null; source: string | null; is_active: boolean; }' is not assignable to parameter of type 'never'.
+  Overload 2 of 2, '(values: never[], options?: { count?: "exact" | "planned" | "estimated" | undefined; defaultToNull?: boolean | undefined; } | undefined): PostgrestFilterBuilder<{ PostgrestVersion: "12"; }, never, never, null, "clients", never, "POST">', gave the following error.
+    Object literal may only specify known properties, and 'agency_id' does not exist in type 'never[]'.
+src/actions/invitation.actions.ts(26,35): error TS2339: Property 'id' does not exist on type 'never'.
+src/actions/invitation.actions.ts(40,66): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(values: never, options?: { count?: "exact" | "planned" | "estimated" | undefined; } | undefined): PostgrestFilterBuilder<{ PostgrestVersion: "12"; }, never, never, null, "user_invitations", never, "POST">', gave the following error.
+    Argument of type '{ agency_id: any; email: string; role: UserRole; }' is not assignable to parameter of type 'never'.
+  Overload 2 of 2, '(values: never[], options?: { count?: "exact" | "planned" | "estimated" | undefined; defaultToNull?: boolean | undefined; } | undefined): PostgrestFilterBuilder<{ PostgrestVersion: "12"; }, never, never, null, "user_invitations", never, "POST">', gave the following error.
+    Object literal may only specify known properties, and 'agency_id' does not exist in type 'never[]'.
+src/actions/media.actions.ts(64,32): error TS2339: Property 'agency_id' does not exist on type 'never'.
+src/actions/media.actions.ts(64,65): error TS2339: Property 'id' does not exist on type 'never'.
+src/actions/media.actions.ts(90,73): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(values: never, options?: { count?: "exact" | "planned" | "estimated" | undefined; } | undefined): PostgrestFilterBuilder<{ PostgrestVersion: "12"; }, never, never, null, "property_media", never, "POST">', gave the following error.
+    Argument of type '{ property_id: any; agency_id: any; media_type: MediaType; video_type: VideoType | null; url: string; storage_path: string; thumbnail_url: null; watermarked_url: null; ... 7 more ...; metadata: {}; }' is not assignable to parameter of type 'never'.
+  Overload 2 of 2, '(values: never[], options?: { count?: "exact" | "planned" | "estimated" | undefined; defaultToNull?: boolean | undefined; } | undefined): PostgrestFilterBuilder<{ PostgrestVersion: "12"; }, never, never, null, "property_media", never, "POST">', gave the following error.
+    Object literal may only specify known properties, and 'property_id' does not exist in type 'never[]'.
+src/actions/media.actions.ts(91,27): error TS2339: Property 'id' does not exist on type 'never'.
+src/actions/media.actions.ts(92,25): error TS2339: Property 'agency_id' does not exist on type 'never'.
+src/actions/media.actions.ts(150,27): error TS2339: Property 'property_id' does not exist on type 'never'.
+src/actions/media.actions.ts(151,32): error TS2339: Property 'storage_path' does not exist on type 'never'.
+src/actions/property.actions.ts(98,60): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(values: never, options?: { count?: "exact" | "planned" | "estimated" | undefined; } | undefined): PostgrestFilterBuilder<{ PostgrestVersion: "12"; }, never, never, null, "properties", never, "POST">', gave the following error.
+    Argument of type '{ agency_id: any; code: string; slug: string; title: string; description: string; price: number; currency: CurrencyType; property_type: PropertyType; status: PropertyStatus; ... 12 more ...; tags: string[]; }' is not assignable to parameter of type 'never'.
+  Overload 2 of 2, '(values: never[], options?: { count?: "exact" | "planned" | "estimated" | undefined; defaultToNull?: boolean | undefined; } | undefined): PostgrestFilterBuilder<{ PostgrestVersion: "12"; }, never, never, null, "properties", never, "POST">', gave the following error.
+    Object literal may only specify known properties, and 'agency_id' does not exist in type 'never[]'.
+src/actions/property.actions.ts(187,13): error TS2345: Argument of type '{ code: string; slug: string; title: string; description: string; price: number; currency: CurrencyType; property_type: PropertyType; status: PropertyStatus; ... 12 more ...; updated_at: string; }' is not assignable to parameter of type 'never'.
+src/actions/settings.actions.ts(49,13): error TS2345: Argument of type '{ name: string; email: string; phone: string | null; address: string | null; website_domain: string | null; whatsapp_number: string | null; instagram_handle: string | null; facebook_page_name: string | null; primary_color: string; secondary_color: string; }' is not assignable to parameter of type 'never'.
+src/app/admin/clients/[id]/page.tsx(15,23): error TS18047: 'supabaseAdmin' is possibly 'null'.
+src/app/admin/clients/page.tsx(45,17): error TS18047: 'supabaseAdmin' is possibly 'null'.
+src/app/admin/page.tsx(13,51): error TS2345: Argument of type 'SupabaseClient<Database, "public", "public", never, { PostgrestVersion: "12"; }> | null' is not assignable to parameter of type 'SupabaseClient<Database, "public", "public", never, { PostgrestVersion: "12"; }>'.
+  Type 'null' is not assignable to type 'SupabaseClient<Database, "public", "public", never, { PostgrestVersion: "12"; }>'.
+src/app/admin/properties/[id]/edit/page.tsx(49,23): error TS18047: 'supabaseAdmin' is possibly 'null'.
+src/app/admin/properties/[id]/page.tsx(22,23): error TS18047: 'supabaseAdmin' is possibly 'null'.
+src/app/admin/properties/[id]/page.tsx(30,30): error TS18047: 'supabaseAdmin' is possibly 'null'.
+src/app/admin/properties/page.tsx(67,17): error TS18047: 'supabaseAdmin' is possibly 'null'.
+src/app/admin/settings/page.tsx(32,23): error TS18047: 'supabaseAdmin' is possibly 'null'.
+src/app/admin/users/page.tsx(45,17): error TS18047: 'supabaseAdmin' is possibly 'null'.
+src/lib/meta/publisher.ts(24,11): error TS2430: Interface 'JobWithRelations' incorrectly extends interface 'PublicationJob'.
+  Types of property 'property' are incompatible.
+    Type '{ title: string; description: string; }' is missing the following properties from type 'Property': id, agency_id, code, slug, and 27 more.
+src/lib/meta/publisher.ts(58,11): error TS18047: 'supabaseAdmin' is possibly 'null'.
+src/lib/meta/publisher.ts(60,15): error TS2345: Argument of type '{ status: string; published_at: string; meta_post_id: string | undefined; meta_media_id: string | undefined; error_log: null; }' is not assignable to parameter of type 'never'.
+src/lib/meta/publisher.ts(75,11): error TS18047: 'supabaseAdmin' is possibly 'null'.
+src/lib/meta/publisher.ts(77,15): error TS2345: Argument of type '{ status: string; retries: number; error_log: string; next_retry_at: string | null; }' is not assignable to parameter of type 'never'.
+src/lib/meta/publisher.ts(88,11): error TS18047: 'supabaseAdmin' is possibly 'null'.
+src/lib/meta/publisher.ts(88,44): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(values: never, options?: { count?: "exact" | "planned" | "estimated" | undefined; } | undefined): PostgrestFilterBuilder<{ PostgrestVersion: "12"; }, never, never, null, "audit_logs", never, "POST">', gave the following error.
+    Argument of type '{ agency_id: string; action: string; entity_type: string; entity_id: string; new_data: { error: string; platform: PublicationPlatform; retries: number; }; }' is not assignable to parameter of type 'never'.
+  Overload 2 of 2, '(values: never[], options?: { count?: "exact" | "planned" | "estimated" | undefined; defaultToNull?: boolean | undefined; } | undefined): PostgrestFilterBuilder<{ PostgrestVersion: "12"; }, never, never, null, "audit_logs", never, "POST">', gave the following error.
+    Object literal may only specify known properties, and 'agency_id' does not exist in type 'never[]'.
+src/lib/meta/publisher.ts(370,9): error TS18047: 'supabaseAdmin' is possibly 'null'.
+src/lib/meta/publisher.ts(372,13): error TS2345: Argument of type '{ status: string; updated_at: string; }' is not assignable to parameter of type 'never'.
+src/workers/publication-worker.ts(14,11): error TS2430: Interface 'JobWithRelations' incorrectly extends interface 'PublicationJob'.
+  Types of property 'property' are incompatible.
+    Type '{ id: string; title: string; description: string; agency_id: string; }' is missing the following properties from type 'Property': code, slug, price, currency, and 25 more.
+src/workers/publication-worker.ts(95,45): error TS18047: 'supabaseAdmin' is possibly 'null'.
+src/workers/publication-worker.ts(97,13): error TS2345: Argument of type '{ status: string; updated_at: string; }' is not assignable to parameter of type 'never'.
+src/workers/publication-worker.ts(100,19): error TS2554: Expected 0-1 arguments, but got 2.
+src/workers/publication-worker.ts(110,54): error TS18047: 'supabaseAdmin' is possibly 'null'.
+src/workers/publication-worker.ts(118,11): error TS18047: 'supabaseAdmin' is possibly 'null'.
+src/workers/publication-worker.ts(120,15): error TS2345: Argument of type '{ status: string; error_log: string; retries: number; }' is not assignable to parameter of type 'never'.
+src/workers/publication-worker.ts(131,14): error TS2339: Property 'token_expires_at' does not exist on type 'never'.
+src/workers/publication-worker.ts(132,23): error TS2339: Property 'token_expires_at' does not exist on type 'never'.
+src/workers/publication-worker.ts(134,11): error TS18047: 'supabaseAdmin' is possibly 'null'.
+src/workers/publication-worker.ts(136,15): error TS2345: Argument of type '{ status: string; error_log: string; }' is not assignable to parameter of type 'never'.

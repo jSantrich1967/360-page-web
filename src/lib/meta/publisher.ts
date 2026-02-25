@@ -21,7 +21,7 @@ interface MetaConnectionRow {
   instagram_account_id: string | null;
 }
 
-interface JobWithRelations extends PublicationJob {
+interface JobWithRelations extends Omit<PublicationJob, "property"> {
   property: { title: string; description: string };
 }
 

@@ -11,7 +11,7 @@ import type { PublicationJob } from "@/types";
 const BATCH_SIZE = 10; // Process max 10 jobs per run to avoid timeouts
 const MAX_CONCURRENT = 3; // Max concurrent Meta API calls
 
-interface JobWithRelations extends PublicationJob {
+interface JobWithRelations extends Omit<PublicationJob, "property"> {
   property: {
     id: string;
     title: string;
@@ -97,7 +97,7 @@ async function processJob(job: JobWithRelations): Promise<void> {
     .update({ status: "UPLOADING", updated_at: new Date().toISOString() })
     .eq("id", job.id)
     .eq("status", "PENDING") // Only update if still PENDING
-    .select("id", { count: "exact" });
+    .select("id");
 
   if (lockError || count === 0) {
     console.log(

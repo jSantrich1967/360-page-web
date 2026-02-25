@@ -20,7 +20,7 @@ export async function createClient(formData: FormData) {
     .from("agencies")
     .select("id")
     .limit(1);
-  const agencyId = agencies?.[0]?.id;
+  const agencyId = (agencies as any[])?.[0]?.id;
   if (!agencyId) {
     redirectWithError("No hay ninguna agencia. Ejecuta supabase/seed_agency.sql en Supabase.");
   }

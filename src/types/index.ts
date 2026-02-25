@@ -336,16 +336,20 @@ export interface MetaPublishResult {
 export interface Database {
   public: {
     Tables: {
-      agencies: { Row: Agency; Insert: Partial<Agency>; Update: Partial<Agency> };
-      users: { Row: User; Insert: Partial<User>; Update: Partial<User> };
-      properties: { Row: Property; Insert: CreatePropertyInput; Update: UpdatePropertyInput };
-      property_media: { Row: PropertyMedia; Insert: Partial<PropertyMedia>; Update: Partial<PropertyMedia> };
-      clients: { Row: Client; Insert: CreateClientInput; Update: Partial<Client> };
-      client_preferences: { Row: ClientPreferences; Insert: Partial<ClientPreferences>; Update: Partial<ClientPreferences> };
-      meta_connections: { Row: MetaConnection; Insert: Partial<MetaConnection>; Update: Partial<MetaConnection> };
-      publication_jobs: { Row: PublicationJob; Insert: CreatePublicationJobInput; Update: Partial<PublicationJob> };
-      audit_logs: { Row: AuditLog; Insert: Partial<AuditLog>; Update: never };
+      agencies: { Row: Agency; Insert: Partial<Agency>; Update: Partial<Agency>; Relationships: [] };
+      users: { Row: User; Insert: Partial<User>; Update: Partial<User>; Relationships: [] };
+      properties: { Row: Property; Insert: CreatePropertyInput; Update: UpdatePropertyInput; Relationships: [] };
+      property_media: { Row: PropertyMedia; Insert: Partial<PropertyMedia>; Update: Partial<PropertyMedia>; Relationships: [] };
+      clients: { Row: Client; Insert: CreateClientInput; Update: Partial<Client>; Relationships: [] };
+      client_preferences: { Row: ClientPreferences; Insert: Partial<ClientPreferences>; Update: Partial<ClientPreferences>; Relationships: [] };
+      meta_connections: { Row: MetaConnection; Insert: Partial<MetaConnection>; Update: Partial<MetaConnection>; Relationships: [] };
+      publication_jobs: { Row: PublicationJob; Insert: CreatePublicationJobInput; Update: Partial<PublicationJob>; Relationships: [] };
+      audit_logs: { Row: AuditLog; Insert: Partial<AuditLog>; Update: never; Relationships: [] };
     };
+    Views: Record<string, never>;
+    Functions: Record<string, never>;
+    Enums: Record<string, never>;
+    CompositeTypes: Record<string, never>;
   };
 }
 

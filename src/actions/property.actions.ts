@@ -35,7 +35,7 @@ export async function createProperty(formData: FormData) {
     .from("agencies")
     .select("id")
     .limit(1);
-  const agencyId = agencies?.[0]?.id;
+  const agencyId = (agencies as any[])?.[0]?.id;
   if (!agencyId) {
     redirectWithError("No hay ninguna agencia. Crea una agencia en Supabase (tabla agencies) y vuelve a intentar.");
   }
