@@ -1,6 +1,7 @@
 "use server";
 
 import { redirect } from "next/navigation";
+import { revalidatePath } from "next/cache";
 import { supabaseAdmin } from "@/lib/supabase/server";
 
 function redirectWithError(message: string): never {
@@ -56,5 +57,35 @@ export async function createClient(formData: FormData) {
     redirectWithError(error.message);
   }
 
+  revalidatePath("/admin/clients");
+  revalidatePath("/admin");
+  redirect("/admin/clients");
+}
+
+/**
+ * Server Action: delete an existing client.
+ */
+export async function deleteClient(formData: FormData) {
+  if (!supabaseAdmin) {
+    redirect("/admin/clients");
+  }
+
+  const id = (formData.get("id") as string | null)?.trim() ?? "";
+  if (!id) {
+    redirect("/admin/clients");
+  }
+
+  const { error } = await supabaseAdmin.from("clients").delete().eq("id", id);
+
+  if (error) {
+    redirect(
+      `/admin/clients/${id}?error=${encodeURIComponent(
+        `No se pudo eliminar el cliente: ${error.message}`
+      )}`
+    );
+  }
+
+  revalidatePath("/admin/clients");
+  revalidatePath("/admin");
   redirect("/admin/clients");
 }

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { supabaseAdmin } from "@/lib/supabase/server";
+import { deleteClient } from "@/actions/client.actions";
 import type { Client } from "@/types";
 
 export default async function AdminClientDetailPage({
@@ -25,7 +26,12 @@ export default async function AdminClientDetailPage({
       <div>
         <Link
           href="/admin/clients"
-          style={{ color: "#94a3b8", textDecoration: "none", marginBottom: "1rem", display: "inline-block" }}
+          style={{
+            color: "#94a3b8",
+            textDecoration: "none",
+            marginBottom: "1rem",
+            display: "inline-block"
+          }}
         >
           ← Volver al listado
         </Link>
@@ -40,7 +46,12 @@ export default async function AdminClientDetailPage({
     <>
       <Link
         href="/admin/clients"
-        style={{ color: "#94a3b8", textDecoration: "none", marginBottom: "1rem", display: "inline-block" }}
+        style={{
+          color: "#94a3b8",
+          textDecoration: "none",
+          marginBottom: "1rem",
+          display: "inline-block"
+        }}
       >
         ← Volver al listado
       </Link>
@@ -66,9 +77,34 @@ export default async function AdminClientDetailPage({
           <p style={{ margin: 0, color: "#94a3b8" }}>Sin notas.</p>
         )}
       </div>
-      <p style={{ marginTop: "1rem", color: "#94a3b8", fontSize: "0.875rem" }}>
-        Próximamente: editar, preferencias de búsqueda, matching con propiedades.
-      </p>
+      <div
+        style={{
+          marginTop: "1rem",
+          display: "flex",
+          gap: "0.75rem",
+          flexWrap: "wrap"
+        }}
+      >
+        {/* Botón de eliminar cliente */}
+        <form action={deleteClient} style={{ display: "inline" }}>
+          <input type="hidden" name="id" value={client.id} />
+          <button
+            type="submit"
+            style={{
+              padding: "0.5rem 1rem",
+              background: "rgba(239, 68, 68, 0.15)",
+              color: "#fca5a5",
+              borderRadius: 6,
+              border: "1px solid #ef4444",
+              fontWeight: 600,
+              fontSize: "0.875rem",
+              cursor: "pointer"
+            }}
+          >
+            Eliminar cliente
+          </button>
+        </form>
+      </div>
     </>
   );
 }

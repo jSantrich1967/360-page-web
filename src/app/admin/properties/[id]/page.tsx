@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { supabaseAdmin } from "@/lib/supabase/server";
 import { uploadPropertyMedia, deletePropertyMedia } from "@/actions/media.actions";
+import { deleteProperty } from "@/actions/property.actions";
 import { DeleteMediaButton } from "./DeleteMediaButton";
 import type { Property, PropertyMedia } from "@/types";
 
@@ -109,7 +110,14 @@ export default async function AdminPropertyDetailPage({
         {property.description}
       </div>
 
-      <p style={{ marginTop: "1rem" }}>
+      <div
+        style={{
+          marginTop: "1rem",
+          display: "flex",
+          gap: "0.75rem",
+          flexWrap: "wrap"
+        }}
+      >
         <Link
           href={`/admin/properties/${property.id}/edit`}
           style={{
@@ -124,7 +132,25 @@ export default async function AdminPropertyDetailPage({
         >
           Editar propiedad
         </Link>
-      </p>
+        <form action={deleteProperty} style={{ display: "inline" }}>
+          <input type="hidden" name="id" value={property.id} />
+          <button
+            type="submit"
+            style={{
+              padding: "0.5rem 1rem",
+              background: "rgba(239, 68, 68, 0.15)",
+              color: "#fca5a5",
+              borderRadius: 6,
+              border: "1px solid #ef4444",
+              fontWeight: 600,
+              fontSize: "0.875rem",
+              cursor: "pointer"
+            }}
+          >
+            Eliminar propiedad
+          </button>
+        </form>
+      </div>
 
       <section style={{ marginTop: "2rem" }}>
         <h2 style={{ fontSize: "1.25rem", marginBottom: "0.75rem" }}>

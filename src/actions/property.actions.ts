@@ -221,3 +221,34 @@ export async function updateProperty(formData: FormData) {
   revalidatePath("/admin");
   redirect(`/admin/properties/${id}`);
 }
+
+/**
+ * Server Action: delete an existing property.
+ * Thanks to ON DELETE CASCADE in the schema, related
+ * rows like property_media will be removed automatically.
+ */
+export async function deleteProperty(formData: FormData) {
+  if (!supabaseAdmin) {
+    redirect("/admin/properties");
+  }
+
+  const id = (formData.get("id") as string | null)?.trim() ?? "";
+  if (!id) {
+    redirect("/admin/properties");
+  }
+
+  const { error } = await supabaseAdmin.from("properties").delete().eq("id", id);
+
+  if (error) {
+    // Volvemos al detalle con el mensaje de error codificado en la URL
+    redirect(
+      `/admin/properties/${id}?mediaError=${encodeURIComponent(
+        `No se pudo eliminar la propiedad: ${error.message}`
+      )}`
+    );
+  }
+
+  revalidatePath("/admin/properties");
+  revalidatePath("/admin");
+  redirect("/admin/properties");
+}
