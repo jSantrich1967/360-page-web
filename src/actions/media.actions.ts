@@ -116,7 +116,8 @@ export async function uploadPropertyMedia(formData: FormData) {
   revalidatePath(`/admin/properties/${propertyId}`);
   revalidatePath("/admin/properties");
   revalidatePath("/admin");
-  redirect(`/admin/properties/${propertyId}`);
+  // Añadimos un indicador en la query para mostrar un mensaje de éxito en la página
+  redirect(`/admin/properties/${propertyId}?mediaSuccess=1`);
 }
 
 /**

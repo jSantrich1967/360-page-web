@@ -10,10 +10,10 @@ export default async function AdminPropertyDetailPage({
   searchParams
 }: {
   params: Promise<{ id: string }>;
-  searchParams: Promise<{ mediaError?: string }>;
+  searchParams: Promise<{ mediaError?: string; mediaSuccess?: string }>;
 }) {
   const { id } = await params;
-  const { mediaError } = await searchParams;
+  const { mediaError, mediaSuccess } = await searchParams;
 
   const hasDb = !!supabaseAdmin;
   let property: Property | null = null;
@@ -156,6 +156,22 @@ export default async function AdminPropertyDetailPage({
         <h2 style={{ fontSize: "1.25rem", marginBottom: "0.75rem" }}>
           Media (fotos y videos)
         </h2>
+
+        {mediaSuccess && !mediaError && (
+          <div
+            style={{
+              background: "rgba(34, 197, 94, 0.15)",
+              border: "1px solid #22c55e",
+              borderRadius: 8,
+              padding: "0.75rem 1rem",
+              marginBottom: "1rem",
+              color: "#bbf7d0",
+              fontSize: "0.875rem"
+            }}
+          >
+            Archivo subido correctamente.
+          </div>
+        )}
 
         {mediaError && (
           <div
