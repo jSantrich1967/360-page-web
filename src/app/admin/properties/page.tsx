@@ -13,17 +13,19 @@ const tableStyle: React.CSSProperties = {
 
 const thStyle: React.CSSProperties = {
   textAlign: "left",
-  padding: "0.75rem 1rem",
+  padding: "0.6rem 0.8rem",
   background: "#0f172a",
   color: "#94a3b8",
-  fontSize: "0.875rem",
-  fontWeight: 600
+  fontSize: "0.8rem",
+  fontWeight: 600,
+  whiteSpace: "nowrap"
 };
 
 const tdStyle: React.CSSProperties = {
-  padding: "0.75rem 1rem",
+  padding: "0.6rem 0.8rem",
   borderTop: "1px solid #334155",
-  color: "#e2e8f0"
+  color: "#e2e8f0",
+  fontSize: "0.9rem"
 };
 
 const statusStyle = (status: string): React.CSSProperties => ({
@@ -95,7 +97,12 @@ export default async function AdminPropertiesPage({
     <>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "1rem", marginBottom: "1.5rem" }}>
         <div>
-          <h1 style={{ margin: "0 0 0.5rem", fontSize: "1.75rem" }}>
+          <h1
+            style={{
+              margin: "0 0 0.5rem",
+              fontSize: "clamp(1.4rem, 3vw, 1.75rem)"
+            }}
+          >
             Propiedades
           </h1>
           <p style={{ color: "#94a3b8", margin: 0 }}>

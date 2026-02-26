@@ -40,7 +40,12 @@ export default async function AdminSettingsPage({
 
   return (
     <>
-      <h1 style={{ margin: "0 0 0.5rem", fontSize: "1.75rem" }}>
+      <h1
+        style={{
+          margin: "0 0 0.5rem",
+          fontSize: "clamp(1.4rem, 3vw, 1.75rem)"
+        }}
+      >
         Configuración
       </h1>
       <p style={{ color: "#94a3b8", marginBottom: "1.5rem" }}>
@@ -115,10 +120,10 @@ export default async function AdminSettingsPage({
       {hasDb && agency && (
         <div
           style={{
-            display: "grid",
-            gridTemplateColumns: "minmax(0, 2fr) minmax(0, 1.2fr)",
+            display: "flex",
+            flexDirection: "column",
             gap: "1.5rem",
-            alignItems: "flex-start"
+            alignItems: "stretch"
           }}
         >
           {/* Formulario de datos de agencia */}

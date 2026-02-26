@@ -50,15 +50,27 @@ export default async function AdminClientDetailPage({
           color: "#94a3b8",
           textDecoration: "none",
           marginBottom: "1rem",
-          display: "inline-block"
+          display: "inline-block",
+          fontSize: "0.9rem"
         }}
       >
         ← Volver al listado
       </Link>
-      <h1 style={{ margin: "0 0 0.5rem", fontSize: "1.75rem" }}>
+      <h1
+        style={{
+          margin: "0 0 0.5rem",
+          fontSize: "clamp(1.4rem, 3vw, 1.75rem)"
+        }}
+      >
         {client.first_name} {client.last_name}
       </h1>
-      <p style={{ color: "#94a3b8", marginBottom: "1.5rem" }}>
+      <p
+        style={{
+          color: "#94a3b8",
+          marginBottom: "1.5rem",
+          fontSize: "0.9rem"
+        }}
+      >
         {client.email ?? "Sin email"} · {client.phone}
         {client.whatsapp ? ` · WhatsApp: ${client.whatsapp}` : ""}
       </p>
