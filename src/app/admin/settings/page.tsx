@@ -1,5 +1,6 @@
 import { supabaseAdmin } from "@/lib/supabase/server";
 import { updateAgencySettings } from "@/actions/settings.actions";
+import { importBackup } from "@/actions/backup.actions";
 import type { Agency } from "@/types";
 
 const inputStyle: React.CSSProperties = {
@@ -22,9 +23,9 @@ const labelStyle: React.CSSProperties = {
 export default async function AdminSettingsPage({
   searchParams
 }: {
-  searchParams: Promise<{ error?: string }>;
+  searchParams: Promise<{ error?: string; backupMsg?: string }>;
 }) {
-  const { error } = await searchParams;
+  const { error, backupMsg } = await searchParams;
   const hasDb = !!supabaseAdmin;
   let agency: Agency | null = null;
 
@@ -92,6 +93,22 @@ export default async function AdminSettingsPage({
           }}
         >
           {error}
+        </div>
+      )}
+
+      {backupMsg && (
+        <div
+          style={{
+            background: "rgba(34, 197, 94, 0.12)",
+            border: "1px solid #22c55e",
+            borderRadius: 8,
+            padding: "0.75rem 1rem",
+            marginBottom: "1.5rem",
+            color: "#bbf7d0",
+            fontSize: "0.9rem"
+          }}
+        >
+          {backupMsg}
         </div>
       )}
 
@@ -365,6 +382,55 @@ export default async function AdminSettingsPage({
           >
             Exportar respaldo (.json)
           </a>
+          <div
+            style={{
+              marginTop: "1rem",
+              borderTop: "1px solid #1f2937",
+              paddingTop: "1rem"
+            }}
+          >
+            <p style={{ marginBottom: "0.5rem" }}>
+              También puedes importar un archivo de respaldo generado por esta
+              herramienta para restaurar datos (se hace un <code>upsert</code>,
+              no se borran registros existentes).
+            </p>
+            <form
+              action={importBackup}
+              encType="multipart/form-data"
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                gap: "0.75rem",
+                alignItems: "center"
+              }}
+            >
+              <input
+                type="file"
+                name="backup_file"
+                accept="application/json"
+                required
+                style={{
+                  maxWidth: "260px",
+                  color: "#e5e7eb"
+                }}
+              />
+              <button
+                type="submit"
+                style={{
+                  padding: "0.5rem 1.25rem",
+                  background: "#0ea5e9",
+                  color: "#fff",
+                  borderRadius: 6,
+                  border: "none",
+                  fontWeight: 600,
+                  fontSize: "0.9rem",
+                  cursor: "pointer"
+                }}
+              >
+                Importar respaldo
+              </button>
+            </form>
+          </div>
         </div>
       )}
     </>
