@@ -2,11 +2,11 @@
 const nextConfig = {
   reactStrictMode: true,
   experimental: {
-    appDir: true,
-    // Allow larger file uploads in Server Actions (images and short videos)
-    serverActions: {
-      bodySizeLimit: "20mb"
-    }
+    appDir: true
+  },
+  // Allow larger file uploads in Server Actions (images and short videos)
+  serverActions: {
+    bodySizeLimit: "20mb"
   }
 };
 
