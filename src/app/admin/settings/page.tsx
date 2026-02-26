@@ -321,6 +321,52 @@ export default async function AdminSettingsPage({
           </div>
         </div>
       )}
+
+      {hasDb && (
+        <div
+          style={{
+            marginTop: "2rem",
+            padding: "1.25rem",
+            borderRadius: 8,
+            border: "1px solid #334155",
+            background: "#020617",
+            color: "#94a3b8",
+            fontSize: "0.9rem"
+          }}
+        >
+          <h2
+            style={{
+              fontSize: "1.1rem",
+              margin: 0,
+              marginBottom: "0.5rem",
+              color: "#e5e7eb"
+            }}
+          >
+            Respaldo (exportar datos)
+          </h2>
+          <p style={{ marginBottom: "0.75rem" }}>
+            Descarga un archivo <code>.json</code> con las agencias, propiedades,
+            media y clientes actuales. Guárdalo en un lugar seguro; más adelante
+            podrás usarlo como base para restaurar datos.
+          </p>
+          <a
+            href="/api/admin/backup/export"
+            style={{
+              display: "inline-block",
+              marginTop: "0.25rem",
+              padding: "0.6rem 1.25rem",
+              background: "#3b82f6",
+              color: "#fff",
+              borderRadius: 6,
+              textDecoration: "none",
+              fontWeight: 600,
+              fontSize: "0.9rem"
+            }}
+          >
+            Exportar respaldo (.json)
+          </a>
+        </div>
+      )}
     </>
   );
 }
