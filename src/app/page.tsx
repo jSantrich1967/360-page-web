@@ -14,9 +14,6 @@ export default function HomePage() {
       }}
     >
       <Logo variant="default" showLink={true} />
-      <h1 style={{ fontSize: "2.5rem", margin: 0 }}>
-        360 Realty Agency
-      </h1>
       <p style={{ maxWidth: 600, textAlign: "center", opacity: 0.8 }}>
         Admin panel + public website + automated social media publishing
         powered by Supabase and Meta Graph API.
