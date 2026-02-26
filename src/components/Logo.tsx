@@ -23,7 +23,7 @@ export function Logo({
       }}
     >
       <img
-        src="/image.png"
+        src="/logo-360.png"
         alt="360 Realty Agency"
         style={{
           display: "block",
